@@ -1,0 +1,25 @@
+
+model {  
+  
+  # Priors
+  gamma.0 ~ dunif(0,1);
+  gamma.1 ~ dunif(0,1);
+  trgt <- logit(gamma.1) - logit(gamma.0)
+  
+  sn0 ~ dunif(0.5, 1);
+  sp0 ~ dunif(0.5, 1);
+  sn1 ~ dunif(0.5, 1);
+  sp1 ~ dunif(0.5, 1);
+  
+  dl.sn <- sn1 - sn0;
+  dl.sp <- sp1 - sp0;
+  
+  
+  # Modeling
+  for (i in 1:n) {
+    x[i] ~ dbern((1-y[i])*gamma.0 + y[i]*gamma.1);
+    xstr[i] ~ dbern((1-y[i])*((1-x[i])*(1-sp0)+x[i]*sn0) + 
+    y[i]*((1-x[i])*(1-sp1)+x[i]*sn1))
+  }
+
+}  

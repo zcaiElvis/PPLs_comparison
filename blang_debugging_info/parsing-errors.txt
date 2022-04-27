@@ -1,0 +1,253 @@
+# --annealSupport <boolean> (default value: true)
+
+# --checkIsDAG <boolean> (default value: true)
+
+# --engine <PosteriorInferenceEngine: SCM|PT|MCMC|AIS|Forward|Exact|None|fully qualified> (default value: PT)
+
+# --engine.adaptFraction <double> (default value: 0.5)
+#   description: Set to zero for disabling schedule adaptation
+
+# --engine.initialization <InitType: COPIES|FORWARD|SCM> (default value: SCM)
+
+# --engine.ladder <TemperatureLadder: Geometric|EquallySpaced|Polynomial|UserSpecified|fully qualified> (default value: EquallySpaced)
+#   description: The annealing schedule to use or if adaptation is used, the initial value
+
+# --engine.logNormalizationEstimator <LogNormalizationEstimator: thermodynamicIntegration|steppingStone> (default value: steppingStone)
+
+# --engine.nChains <int> (default value: 8)
+
+# --engine.nPassesPerScan <double> (default value: 3)
+
+# --engine.nScans <int> (default value: 1_000)
+
+# --engine.nThreads <Cores: Single|Max|Dynamic|Fixed|fully qualified> (default value: Dynamic)
+
+# --engine.nThreads.fraction <double> (default value: 0.5)
+
+# --engine.nThreads.ignoreUtilizedCores <boolean> (default value: true)
+
+# --engine.nThreads.verbose <boolean> (default value: false)
+
+# --engine.random <Random> (default value: 1)
+
+# --engine.reversible <boolean> (default value: false)
+
+# --engine.scmInit.maxAnnealingParameter <double> (default value: 1.0)
+#   description: Use higher values for likelihood maximization
+
+# --engine.scmInit.nFinalRejuvenations <int> (default value: 5)
+#   description: Number of rejuvenation passes to do after the change of measure.
+
+# --engine.scmInit.nParticles <int> (default value: 1_000)
+
+# --engine.scmInit.nThreads <Cores: Single|Max|Dynamic|Fixed|fully qualified> (default value: Dynamic)
+
+# --engine.scmInit.nThreads.fraction <double> (default value: 0.5)
+
+# --engine.scmInit.nThreads.ignoreUtilizedCores <boolean> (default value: true)
+
+# --engine.scmInit.nThreads.verbose <boolean> (default value: false)
+
+# --engine.scmInit.random <Random> (default value: 1)
+#   description: Random seed used for proposals and resampling.
+
+# --engine.scmInit.resamplingESSThreshold <double> (default value: 0.5)
+#   description: If the (relative) Effective Sample Size (ESS) falls below, perform a resampling round.
+
+# --engine.scmInit.resamplingScheme <ResamplingScheme: STRATIFIED|MULTINOMIAL> (default value: STRATIFIED)
+
+# --engine.scmInit.temperatureSchedule <TemperatureSchedule: AdaptiveTemperatureSchedule|FixedTemperatureSchedule|fully qualified> (default value: AdaptiveTemperatureSchedule)
+#   description: Algorithm selecting annealing parameter increments.
+
+# --engine.scmInit.temperatureSchedule.nudgeFromZeroIfOutOfSupport <double> (default value: 1e-10)
+#   description: If all particles are out of support at first iteration, nudge the temperature a bit so that support constraints kick in.
+
+# --engine.scmInit.temperatureSchedule.threshold <double> (default value: 0.9999)
+#   description: Annealing parameter is selected to get the (conditional) ESS decrease specified by this parameter.
+
+# --engine.scmInit.temperatureSchedule.useConditional <boolean> (default value: true)
+#   description: See Zhou, Johansen and Aston (2013).
+
+# --engine.statisticRecordedMaxChainIndex <int> (default value: 100)
+#   description: Use when huge number of chains are utilized. Statistics like energy, logLikelihood are only recorded for the first so many indices to avoid excessive output size.
+
+# --engine.targetAccept <Double> (optional)
+
+# --engine.thinning <int> (default value: 1)
+#   description: Collect statistics every thinning iteration (=1 to always collect, >1 to save hard drive space)
+
+# --engine.usePriorSamples <boolean> (default value: true)
+
+# --excludeFromOutput <List: Space separated items or "file <path>" to load from newline separated file> (optional)
+
+# --experimentConfigs.configFile <File> (optional)
+#   description: If set, use those arguments in provided file that do not appear in the provided arguments.
+
+# --experimentConfigs.description <String> (optional)
+#   description: Documentation for this run.
+
+# --experimentConfigs.managedExecutionFolder <boolean> (default value: true)
+#   description: Automatically organize results into subdirectories of 'results/all'?
+
+# --experimentConfigs.maxIndentationToPrint <int> (default value: inf)
+#   description: Use -1 to silence all output done through blang.System.*
+
+# --experimentConfigs.recordExecutionInfo <boolean> (default value: true)
+#   description: Record information such as timing, main class, code version, etc for this run?
+
+# --experimentConfigs.recordGitInfo <boolean> (default value: false)
+
+# --experimentConfigs.resultsHTMLPage <boolean> (default value: true)
+
+# --experimentConfigs.saveStandardStreams <boolean> (default value: true)
+#   description: Save combined standard out and err into a file?
+
+# --experimentConfigs.tabularWriter <TabularWriterFactory: CSV|Spark|fully qualified> (default value: CSV)
+
+# --experimentConfigs.tabularWriter.compressed <boolean> (default value: false)
+
+# --experimentConfigs.uniqueExperimentDirectoryName <String> (optional)
+
+# --initRandom <Random> (default value: 1)
+
+  --model demo.Example$Builder    # <ModelBuilder: fully qualified>
+
+  --model.data dta.csv    # <GlobalDataSource: Path to the DataSource.>
+
+# --model.data.reader <DataSourceReader: CSV|fully qualified> (default value: CSV)
+
+# --model.data.reader.commentCharacter <Character> (optional)
+
+# --model.data.reader.ignoreLeadingWhiteSpace <boolean> (default value: true)
+
+# --model.data.reader.separator <char> (default value: ,)
+
+# --model.data.reader.strictQuotes <boolean> (default value: false)
+
+# --model.gamma_0 <RealVar: A number or NA>
+# ! Did not instantiate <blang.core.RealVar> because of missing input
+
+# --model.gamma_1 <RealVar: A number or NA>
+# ! Did not instantiate <blang.core.RealVar> because of missing input
+
+# --model.pat.dataSource <DataSource: Path to the DataSource.>
+
+# --model.pat.dataSource.reader <DataSourceReader: CSV|fully qualified> (default value: CSV)
+
+# --model.pat.dataSource.reader.commentCharacter <Character> (optional)
+
+# --model.pat.dataSource.reader.ignoreLeadingWhiteSpace <boolean> (default value: true)
+
+# --model.pat.dataSource.reader.separator <char> (default value: ,)
+
+# --model.pat.dataSource.reader.strictQuotes <boolean> (default value: false)
+
+# --model.pat.maxSize <Integer> (optional)
+
+# --model.pat.name <ColumnName> (optional)
+
+# --model.sn0 <RealVar: A number or NA>
+# ! Did not instantiate <blang.core.RealVar> because of missing input
+
+# --model.sn1 <RealVar: A number or NA>
+# ! Did not instantiate <blang.core.RealVar> because of missing input
+
+# --model.sp0 <RealVar: A number or NA>
+# ! Did not instantiate <blang.core.RealVar> because of missing input
+
+# --model.sp1 <RealVar: A number or NA>
+# ! Did not instantiate <blang.core.RealVar> because of missing input
+
+# --model.x.dataSource <DataSource: Path to the DataSource.>
+
+# --model.x.dataSource.reader <DataSourceReader: CSV|fully qualified> (default value: CSV)
+
+# --model.x.dataSource.reader.commentCharacter <Character> (optional)
+
+# --model.x.dataSource.reader.ignoreLeadingWhiteSpace <boolean> (default value: true)
+
+# --model.x.dataSource.reader.separator <char> (default value: ,)
+
+# --model.x.dataSource.reader.strictQuotes <boolean> (default value: false)
+
+# --model.x.name <ColumnName> (optional)
+#   description: Name of variable in the plate
+
+# --model.xstr.dataSource <DataSource: Path to the DataSource.>
+
+# --model.xstr.dataSource.reader <DataSourceReader: CSV|fully qualified> (default value: CSV)
+
+# --model.xstr.dataSource.reader.commentCharacter <Character> (optional)
+
+# --model.xstr.dataSource.reader.ignoreLeadingWhiteSpace <boolean> (default value: true)
+
+# --model.xstr.dataSource.reader.separator <char> (default value: ,)
+
+# --model.xstr.dataSource.reader.strictQuotes <boolean> (default value: false)
+
+# --model.xstr.name <ColumnName> (optional)
+#   description: Name of variable in the plate
+
+# --model.y.dataSource <DataSource: Path to the DataSource.>
+
+# --model.y.dataSource.reader <DataSourceReader: CSV|fully qualified> (default value: CSV)
+
+# --model.y.dataSource.reader.commentCharacter <Character> (optional)
+
+# --model.y.dataSource.reader.ignoreLeadingWhiteSpace <boolean> (default value: true)
+
+# --model.y.dataSource.reader.separator <char> (default value: ,)
+
+# --model.y.dataSource.reader.strictQuotes <boolean> (default value: false)
+
+# --model.y.name <ColumnName> (optional)
+#   description: Name of variable in the plate
+
+# --postProcessor <PostProcessor: DefaultPostProcessor|NoPostProcessor|fully qualified> (default value: NoPostProcessor)
+
+# --postProcessor.blangExecutionDirectory <File> (optional)
+#   description: When called from Blang, this will be the latest run, otherwise point to the .exec folder created by Blang
+
+# --postProcessor.experimentConfigs.configFile <File> (optional)
+#   description: If set, use those arguments in provided file that do not appear in the provided arguments.
+
+# --postProcessor.experimentConfigs.description <String> (optional)
+#   description: Documentation for this run.
+
+# --postProcessor.experimentConfigs.managedExecutionFolder <boolean> (default value: true)
+#   description: Automatically organize results into subdirectories of 'results/all'?
+
+# --postProcessor.experimentConfigs.maxIndentationToPrint <int> (default value: inf)
+#   description: Use -1 to silence all output done through blang.System.*
+
+# --postProcessor.experimentConfigs.recordExecutionInfo <boolean> (default value: true)
+#   description: Record information such as timing, main class, code version, etc for this run?
+
+# --postProcessor.experimentConfigs.recordGitInfo <boolean> (default value: false)
+
+# --postProcessor.experimentConfigs.resultsHTMLPage <boolean> (default value: true)
+
+# --postProcessor.experimentConfigs.saveStandardStreams <boolean> (default value: true)
+#   description: Save combined standard out and err into a file?
+
+# --postProcessor.experimentConfigs.tabularWriter <TabularWriterFactory: CSV|Spark|fully qualified> (default value: CSV)
+
+# --postProcessor.experimentConfigs.tabularWriter.compressed <boolean> (default value: false)
+
+# --postProcessor.experimentConfigs.uniqueExperimentDirectoryName <String> (optional)
+
+# --printAccessibilityGraph <boolean> (default value: false)
+
+# --samplers.additional <SamplerSet: Fully qualified instances of blang.mcmc.Sampler>
+#   description: Samplers to be added.
+
+# --samplers.excluded <SamplerSet: Fully qualified instances of blang.mcmc.Sampler>
+#   description: Samplers to be excluded (only useful if useAnnotation = true).
+
+# --samplers.useAnnotation <boolean> (default value: true)
+#   description: If the arguments of the annotations @Samplers should be used to determine a starting set of sampler types.
+
+# --stripped <boolean> (default value: false)
+#   description: Stripped means that the construction of forward simulators and annealers is skipped
+
+# --treatNaNAsNegativeInfinity <boolean> (default value: false)

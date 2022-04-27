@@ -1,0 +1,12 @@
+
+  model {  
+  # Priors
+  a ~ dexp(1)
+  b ~ dexp(1)
+  # Modeling
+  for (i in 1:n) {
+    fail_prob[i] ~ dbeta(a, b)
+    num_fail[i] ~ dbin(fail_prob[i], num_launch[i])
+  }
+
+}  
